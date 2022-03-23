@@ -55,3 +55,8 @@ Host dtc-airflow_webserver
 ```
 
 Which allows me to access the airflow webserver at url `http://localhost:<my_local_machine_port>/home`
+
+
+# Airflow DAGs
+
+In Airflow, DAGs (Directed Acyclic Graphs) are used to map out tasks and the dependencies between those tasks.
