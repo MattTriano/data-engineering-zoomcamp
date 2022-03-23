@@ -36,3 +36,22 @@ Also, the zoomcamp instructors added a line to slip `vim` into the Dockerfile, b
 
 I would like to leave some bits of information out of my github repo, so I'm going to stow some secrets in environment variables and adapt the docker-compose file to look for them there.
 
+
+## Port Forwarding
+
+I modified my `~/.ssh/config` file to automatically port forward while also providing an ssh connection.
+
+```bash
+Host dtc-*
+	HostName <VM_external_IP_addr>
+	User <user>
+	IdentityFile <location_of_ssh_private_key>
+
+Host dtc-de-zoomcamp
+	TCPKeepalive Yes
+
+Host dtc-airflow_webserver
+	LocalForward <my_local_machine_port> localhost:<port_on_vm>
+```
+
+Which allows me to access the airflow webserver at url `http://localhost:<my_local_machine_port>/home`
